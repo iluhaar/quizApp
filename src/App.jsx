@@ -91,7 +91,6 @@ export default function App() {
 		if (isCorrect === true) {
 			// alert('Correct')
 			setScore(score + 1);
-			console.log(score);
 		}
 
 		const newQuestion = currentQuestion + 1;
@@ -120,7 +119,7 @@ export default function App() {
 						<div className='question-text'>{questions[currentQuestion].questionText}</div>
 					</div>
 					<div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => <button onClick={() => answerHandler(answerOption.isCorrect)}>{answerOption.answerText}</button>)}
+						{questions[currentQuestion].answerOptions.map((answerOption, i) => <button onClick={() => answerHandler(answerOption.isCorrect)}key={i}>{answerOption.answerText}</button>)}
 					</div>
 				</>
 			)}
